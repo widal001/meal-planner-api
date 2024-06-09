@@ -1,8 +1,8 @@
 """Test that the package was installed correctly."""
 
-import boilerplate
+import meal_planner
 
 
 def test_package_named_correctly():
     """The package should be imported and named correctly."""
-    assert boilerplate.__name__ == "boilerplate"
+    assert meal_planner.__name__ == "meal_planner"
