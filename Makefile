@@ -15,7 +15,10 @@ install: check-prereqs
 	poetry install
 
 setup: install lint test-audit
-	poetry run pre-commit install
+	$(POETRY) pre-commit install
+
+api-dev:
+	$(POETRY) fastapi dev src/meal_planner/api.py
 
 ##########################
 # Formatting and linting #
