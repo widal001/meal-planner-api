@@ -7,7 +7,7 @@ app = FastAPI()
 
 
 @app.get("/")
-async def root() -> dict:
+async def root() -> RedirectResponse:
     """Redirects the user to the API docs."""
     return RedirectResponse(
         "/docs",
