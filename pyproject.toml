@@ -1,12 +1,13 @@
 [tool.poetry]
 authors = ["widal001 <williamdaly422@gmail.com>"]
-description = "Boilerplate code for basic python package"
+description = "API for the meal planner app"
 license = "MIT License"
-name = "boilerplate"
+name = "meal-planner"
 version = "0.1.0"
 
 [tool.poetry.dependencies]
 python = ">=3.11,<4.0"
+fastapi = "^0.111.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.4.2"
