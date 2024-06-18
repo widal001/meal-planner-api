@@ -1,0 +1,2 @@
+[testing]
+database_url = "sqlite:///mock.db"
