@@ -1,9 +1,12 @@
 """Create utility functions for the database."""
 
+from uuid import uuid4
+
 from sqlalchemy.orm import Session
 from sqlalchemy import text
 
 from meal_planner.models.base import UUIDAuditBase
+from meal_planner.models.ingredient import Ingredient
 
 from tests.utils import test_data as data
 
@@ -76,6 +79,17 @@ def populate_db(session: Session) -> None:
             model=test_data.model,
             records=test_data.records,
         )
+
+    # populate ingredients table
+    for recipe, test_data in data.INGREDIENTS.items():
+        for food, ingredient_data in test_data.items():
+            ingredient = Ingredient(
+                id=uuid4(),
+                food_id=food,
+                recipe_id=recipe,
+                **ingredient_data,
+            )
+            session.add(ingredient)
 
     # commit the changes
     session.commit()

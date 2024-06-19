@@ -33,7 +33,7 @@ class Ingredient(UUIDAuditBase):
         nullable=False,
     )
     # regular columns
-    quantity: Mapped[float]
+    amount: Mapped[float]
     unit: Mapped[str]
 
     #################

@@ -9,8 +9,8 @@ from meal_planner.models.recipe import Recipe
 
 
 @dataclass
-class MockTableData:
-    """Map test data to the model used to populate that test data in the db."""
+class UUIDTableData:
+    """Map test data to the model used to populate that test data for a UUID table."""
 
     model: type[UUIDAuditBase]
     records: dict[UUID, dict]
@@ -85,6 +85,6 @@ INGREDIENTS = {
 
 # records to create and insert directly
 UUID_TABLES = {
-    "food": MockTableData(model=Food, records=FOODS),
-    "recipes": MockTableData(model=Recipe, records=RECIPES),
+    "food": UUIDTableData(model=Food, records=FOODS),
+    "recipes": UUIDTableData(model=Recipe, records=RECIPES),
 }
