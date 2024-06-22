@@ -25,7 +25,7 @@ class Food(UUIDAuditBase):
     ###########
 
     name: Mapped[str]
-    kind: Mapped[str]
+    kind: Mapped[str | None]
 
     #################
     # relationships #
