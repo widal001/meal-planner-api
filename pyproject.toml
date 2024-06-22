@@ -6,10 +6,10 @@ name = "meal-planner"
 version = "0.1.0"
 
 [tool.poetry.dependencies]
+dynaconf = "^3.2.5"
 fastapi = "^0.111.0"
 python = ">=3.11,<4.0"
 sqlalchemy = "^2.0.30"
-dynaconf = "^3.2.5"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.4.2"
@@ -67,3 +67,9 @@ ignore = [
   "FA", # flake8-future-annotations ruleset
 ]
 select = ["ALL"]
+
+[[tool.mypy.overrides]]
+ignore_missing_imports = true
+module = [
+  "dynaconf.*",
+]

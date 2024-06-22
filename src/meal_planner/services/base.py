@@ -47,7 +47,7 @@ class InsertOnlyBase(Generic[ModelTypeT, CreateSchemaTypeT]):
 
     def get_count(self, db: Session) -> int:
         """Return the count of rows in the table, or the query if one is given."""
-        stmt = sa.select(sa.func.count()).select_from(self.model)
+        stmt = sa.select(sa.func.count()).select_from(self.model)  # pylint: disable=not-callable  # fmt: skip
         count = db.execute(stmt).scalar()
         if count:
             return count

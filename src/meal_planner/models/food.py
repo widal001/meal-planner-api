@@ -9,8 +9,6 @@ from sqlalchemy.orm import Mapped, relationship
 from meal_planner.models.base import UUIDAuditBase
 
 if TYPE_CHECKING:
-    from sqlalchemy.orm import Mapped
-
     from meal_planner.models.ingredient import Ingredient
     from meal_planner.models.recipe import Recipe
 
