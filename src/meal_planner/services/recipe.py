@@ -6,12 +6,16 @@ from sqlalchemy.orm import Session
 
 from meal_planner.models.recipe import Recipe
 from meal_planner.schemas.ingredient import IngredientCreateSchema
-from meal_planner.schemas.recipe import RecipeCreateSchema, RecipeIngredient
-from meal_planner.services.base import InsertOnlyBase
+from meal_planner.schemas.recipe import (
+    RecipeCreateSchema,
+    RecipeIngredient,
+    RecipeUpdateSchema,
+)
+from meal_planner.services.base import CRUDBase
 from meal_planner.services.ingredient import ingredient_service
 
 
-class RecipeService(InsertOnlyBase[Recipe, RecipeCreateSchema]):
+class RecipeService(CRUDBase[Recipe, RecipeCreateSchema, RecipeUpdateSchema]):
     """Handle the business logic for reading and creating recipes."""
 
     def create(

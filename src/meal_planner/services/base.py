@@ -182,5 +182,6 @@ class CRUDBase(
 
         """
         record = db.get(self.model, row_id)
-        db.delete(record)
-        db.commit()
+        if record:
+            db.delete(record)
+            db.commit()

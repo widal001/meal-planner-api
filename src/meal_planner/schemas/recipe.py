@@ -24,3 +24,7 @@ class RecipeCreateSchema(RecipeBaseSchema):
     """Schema used to create new recipes."""
 
     ingredients: list[RecipeIngredient]
+
+
+class RecipeUpdateSchema(RecipeBaseSchema):
+    """Schema used to update recipes."""
