@@ -10,6 +10,7 @@ dynaconf = "^3.2.5"
 fastapi = "^0.111.0"
 python = ">=3.11,<4.0"
 sqlalchemy = "^2.0.30"
+fastapi-pagination = "^0.12.25"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.4.2"
