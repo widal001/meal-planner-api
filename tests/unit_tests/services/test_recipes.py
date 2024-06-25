@@ -6,9 +6,9 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from meal_planner.models.recipe import Recipe
-from meal_planner.services.recipe import recipe_service
-from meal_planner.services.food import food_service
-from meal_planner.services.ingredient import ingredient_service
+from meal_planner.services.recipes import recipe_service
+from meal_planner.services.foods import food_service
+from meal_planner.services.ingredients import ingredient_service
 from meal_planner.schemas.recipe import RecipeCreateSchema, RecipeIngredient
 
 from tests.utils import test_data

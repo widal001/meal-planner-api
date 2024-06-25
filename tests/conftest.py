@@ -1,5 +1,7 @@
 """Manage shared fixtures and test settings for pytest."""
 
+from typing import Generator
+
 import pytest
 from dynaconf import Dynaconf
 from fastapi.testclient import TestClient
@@ -8,6 +10,7 @@ from sqlalchemy.orm import Session, sessionmaker
 
 from meal_planner.api import app
 from meal_planner.config import settings
+from meal_planner.dependencies import database
 
 from tests.utils.database import init_test_db, populate_db
 
@@ -60,6 +63,12 @@ def fixture_scoped_session(session: Session, monkeypatch: pytest.MonkeyPatch):
 
 
 @pytest.fixture(name="client")
-def mock_client() -> TestClient:
+def mock_client(test_session: Session) -> TestClient:
     """Create a mock client to test the API."""
+
+    def override_get_db() -> Generator[Session, None, None]:
+        """Override the get_db() dependency to yield a test session."""
+        yield test_session
+
+    app.dependency_overrides[database.get_db] = override_get_db
     return TestClient(app)

@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 from meal_planner.models.ingredient import Ingredient
 from meal_planner.schemas.ingredient import IngredientCreateSchema
 from meal_planner.services.base import InsertOnlyBase
-from meal_planner.services.food import food_service
+from meal_planner.services.foods import food_service
 
 
 class IngredientService(InsertOnlyBase[Ingredient, IngredientCreateSchema]):

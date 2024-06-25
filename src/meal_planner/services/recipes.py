@@ -12,7 +12,7 @@ from meal_planner.schemas.recipe import (
     RecipeUpdateSchema,
 )
 from meal_planner.services.base import CRUDBase
-from meal_planner.services.ingredient import ingredient_service
+from meal_planner.services.ingredients import ingredient_service
 
 
 class RecipeService(CRUDBase[Recipe, RecipeCreateSchema, RecipeUpdateSchema]):
