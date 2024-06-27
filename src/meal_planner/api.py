@@ -2,8 +2,13 @@
 
 from fastapi import FastAPI, status
 from fastapi.responses import RedirectResponse
+from fastapi_pagination import add_pagination
+
+from meal_planner.routers.recipes import recipe_router
 
 app = FastAPI()
+app.include_router(recipe_router)
+add_pagination(app)
 
 
 @app.get("/")
